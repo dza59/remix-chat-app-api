@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
-import { fetchMessage } from '../controllers/fetchMessageController';
+import { fetchMessages } from '../controllers/fetchMessageController';
 
 const router = express.Router();
 
-router.get('/send-message', fetchMessage);
+router.get('/getAllMessages', fetchMessages);
 
 export default router;

@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
-import { sendMessage } from '../controllers/sendMessageControllers';
+import { sendMessage } from '../controllers/sendMessageController';
 
 const router = express.Router();
 
-router.post('/send-message', sendMessage);
+router.post('/sendMessage', sendMessage);
 
 export default router;

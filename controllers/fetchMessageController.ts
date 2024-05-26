@@ -1,20 +1,17 @@
 import { Request, Response } from 'express';
-import Message from '../models/message';
+import Message from '../models/Message';
 
-const fetchMessage = async (req: Request, res: Response) => {
-  const { message } = req.body;
-
+const fetchMessages = async (req: Request, res: Response) => {
   try {
     const messages = await Message.find();
-
     if (!messages) {
-      res.status(404).json({ message: 'Messages not found' });
+      res.status(204).json({ message: 'Messages not found' });
     }
 
-    res.status(200).json({ messages });
+    res.json(messages);
   } catch (err) {
     res.status(500).send('Internal Server Error');
   }
 };
 
-export { fetchMessage };
+export { fetchMessages };
